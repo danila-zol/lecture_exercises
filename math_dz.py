@@ -1,14 +1,10 @@
-largest_n = int(input("Input an intger n: "))
-divisible_three_sum = 0
-divisible_five_sum = 0
+user_N = int(input("Input an intger n: "))
 
-for n in range(largest_n):
-    if n % 3 == 0 and n % 5 == 0:
-        pass
-    elif n % 5 == 0:
-        divisible_five_sum += n
-    elif n % 3 == 0:
-        divisible_three_sum += n
+def divisible_sum(l_num, divisor):
+    last_element = l_num - (l_num % divisor)
+    element_count = l_num // divisor
+    return ((divisor + last_element) * element_count) / 2
 
-print(f"Sum of numbers divisible by 3: {divisible_three_sum}")
-print(f"Sum of numbers divisible by 5: {divisible_five_sum}")
+divisible_tf_sum = divisible_sum(user_N, 3) + divisible_sum(user_N, 5) - divisible_sum(user_N, 15)
+
+print(f"Sum of dividable by 3 and 5: {divisible_tf_sum}")
