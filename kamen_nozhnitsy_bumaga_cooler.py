@@ -1,17 +1,17 @@
 sides = {
-    "камень" : 0b100,
-    "ножницы" : 0b010,
-    "бумага" : 0b001
+    "камень" : 4,
+    "ножницы" : 2,
+    "бумага" : 1
 }
 
 players = input().lower().split()
 
 match sides[players[0]] ^ sides[players[1]]:
-    case 0b110:
+    case 6:
         winner = "камень"
-    case 0b011:
+    case 3:
         winner = "ножницы"
-    case 0b101:
+    case 5:
         winner = "бумага"
     case _:
         winner = None
