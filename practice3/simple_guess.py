@@ -12,8 +12,3 @@ def guess(root):
 
 root = guess(int(input("Enter N: ")))
 print(root if root else "трудно")
-
-# if root:
-#     print(root)
-# else:
-#     print("трудно")
