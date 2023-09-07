@@ -18,8 +18,9 @@ match sides[players[0]] ^ sides[players[1]]:
 
 for p in players:
     if p == winner:
-        print(f"Побеждает игрок {players.index(p)}")
+        print(f"Побеждает игрок {players.index(p) + 1}")
     elif winner == None:
         print("Ничья")
+        break
 
 
