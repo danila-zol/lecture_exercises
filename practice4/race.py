@@ -20,7 +20,7 @@ from import_this import generate_race_data, RACE_DATA
 def print_scoreboard(race_data : RACE_DATA) -> None:
     racers_arr = [None for x in race_data.keys()]
     for rd in race_data.values():
-        racers_arr[rd['FinishedPlace'] - 1] = rd
+        racers_arr[rd["FinishedPlace"] - 1] = rd
 
     win_message = f"Выиграл - {racers_arr[0]['RacerName']}!!! Поздравляем!!\n"
     print(win_message + "-" * len(win_message) + "\n")
