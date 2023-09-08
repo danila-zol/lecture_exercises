@@ -27,7 +27,7 @@ def sort_racers(race_data : RACE_DATA) -> list:
 def print_first_racer(racers_arr : list) -> None:
 
     win_message = f"Выиграл - {racers_arr[0]['RacerName']}!!! Поздравляем!!\n"
-    print(win_message + "-" * len(win_message) + "\n")
+    print(win_message + "-" * (len(win_message) - 1) + "\n")
 
 def print_top3_racers(racers_arr : list) -> None:
 
