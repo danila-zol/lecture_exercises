@@ -30,10 +30,10 @@ def print_scoreboard(race_data : RACE_DATA) -> None:
         ts = rd["FinishedTimeSeconds"] % 60
         tm = rd["FinishedTimeSeconds"] % 3600 // 60
         th = rd["FinishedTimeSeconds"] // 3600
-        print(f"Гонщик на {racers_arr.index(rd) + 1} месте:\n\
-        \tИмя: {rd['RacerName']}\n\
-        \tКоманда: {rd['RacerTeam']}\n\
-        \tВремя: {th}:{tm}:{ts}\n")
+        print(f"Гонщик на {racers_arr.index(rd) + 1} месте:\n" +
+            f"\tИмя: {rd['RacerName']}\n" +
+            f"\tКоманда: {rd['RacerTeam']}\n" +
+            f"\tВремя: {th}:{tm}:{ts}\n")
 
     return
 
