@@ -1,4 +1,7 @@
-user_narr = input("Input number array: ")[1:-1].split(",")
+from re import findall
+
+user_narr = findall(r"[0-9]+", input("Input number array: "))
+print(user_narr)
 user_narr = [int(x) for x in user_narr]
 
 wrong_narr = []
