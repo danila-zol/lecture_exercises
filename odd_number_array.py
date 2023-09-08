@@ -1,8 +1,7 @@
 from re import findall
 
-user_narr = findall(r"[0-9]+", input("Input number array: "))
-print(user_narr)
-user_narr = [int(x) for x in user_narr]
+user_narr = findall(r"[0-9.]+", input("Input number array: "))
+user_narr = [float(x) for x in user_narr]
 
 wrong_narr = []
 el1 = None
