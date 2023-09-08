@@ -1,4 +1,4 @@
-from import_this import RACE_DATA
+from import_this import generate_race_data
 
 # Output Structure
 
@@ -16,6 +16,8 @@ from import_this import RACE_DATA
 #     Имя: фыв
 #     Команда: ыфв
 #     Время: 02:00:00 (H:M:S)
+
+RACE_DATA = generate_race_data(100)
 
 racers_arr = [None for x in RACE_DATA.keys()]
 for rd in RACE_DATA.values():
