@@ -10,15 +10,15 @@ def divide_ab(a: int, b: int) -> float:
     return a / b
 
 while True:
-    a, b = input("Введите двы числа для их суммы: ").split()
     try:
+        a, b = input("Введите двы числа для их суммы: ").split()
         a, b = convert_ab_to_int(a, b) 
         ab_sum = a + b
         division_score = divide_ab(a, b)
 
     except ValueError as e:
         print(f"Ошибка {e}")
-        print("Дружище, ты дурак, введи числа!!!\n")
+        print("Дружище, ты дурак, введи числа!!!")
         continue
     except ZeroDivisionError as e:
         print(f"Ошибка {e}")
@@ -30,7 +30,6 @@ while True:
         continue
     finally:
         print("мы в финале шоу танцы")
-        continue
    
     print(f"Сумма {a} + {b} = {ab_sum}")
     print(f"Деление {a} / {b} = {division_score}")
