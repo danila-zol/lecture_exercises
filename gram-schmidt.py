@@ -285,5 +285,6 @@ test_matrix = Matrix([[randint(1, 100), randint(1, 100), randint(1, 100), randin
                       [randint(1, 100), randint(1, 100), randint(1, 100), randint(1, 100)],
                       [randint(1, 100), randint(1, 100), randint(1, 100), randint(1, 100)]])
 
+test_matrix = Matrix([[1, 1, 0], [2, 2, 0], [1, 2, 1]])
 print(test_matrix, '\n')
 print(test_matrix.gram_schmidt(), '\n')
