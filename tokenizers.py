@@ -14,8 +14,8 @@ def test_tokenizer(tokenizer, *args):
     global t_num
     t = tokenizer(*args)
     tokens = t.tokenize(book_text)
-    print(f"{t_num} {tokenizer}")
-    print(f"Number of tokens: {len(tokens)}")
+    print(f"{t_num}: {tokenizer}")
+    print(f"Number of tokens: {len(tokens)}\n")
     t_num += 1
 
 def test_tokenizer_special(tokenizer, book_text, *args):
@@ -64,11 +64,13 @@ with open("On_Liberty.txt", encoding="utf-8-sig") as f:
     # MWE tokenizer
     wp_tokenizer = tokenize.WordPunctTokenizer()
     wordpunkt_tokens = wp_tokenizer.tokenize(book_text)
-    t = tokenize.MWETokenizer(separator=' ')
-    t.add_mwe(("putt", "off"))
-    t.add_mwe(("add", "up"))
-    test_tokenizer_special(t, wordpunkt_tokens)
+    test_tokenizer_special(
+        tokenize.MWETokenizer,
+        wordpunkt_tokens,
+        [("putt", "off"), ("add", "up")], ' '
+    )
 
+    # 
 
 
 
