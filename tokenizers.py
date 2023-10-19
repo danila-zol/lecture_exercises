@@ -1,4 +1,5 @@
 import spacy
+from os import environ
 from nltk import data
 from nltk import tokenize
 from nltk.corpus import words
@@ -7,6 +8,9 @@ import pandas as pd
 import warnings
 warnings.filterwarnings("ignore")
 
+class MyTokenizer:
+    def tokenize(self, text : str) -> list:
+        return text.split()
 
 tokenizer_list = [tkn for tkn in dir(tokenize) if tkn[0].isupper()]
 print(len(tokenizer_list), tokenizer_list, "", sep='\n')
@@ -17,7 +21,8 @@ def test_tokenizer(tokenizer, *args):
     t = tokenizer(*args)
     tokens = t.tokenize(book_text)
     print(f"{t_num}: {tokenizer}")
-    print(f"Number of tokens: {len(tokens)}\n")
+    print(f"Number of tokens: {len(tokens)}")
+    print(f"Lexical diversity: {(len(tokens) / len(book_text)) * 100:.2f}%\n")
     t_num += 1
 
 def test_tokenizer_special(tokenizer, book_text, *args):
@@ -25,7 +30,7 @@ def test_tokenizer_special(tokenizer, book_text, *args):
     t = tokenizer(*args)
     tokens = t.tokenize(book_text)
     print(f"{t_num} {tokenizer}")
-    print(f"Number of tokens: {len(tokens)}\n")
+    print(f"Number of tokens: {len(tokens):.2f}\n")
     t_num += 1
 
 with open("On_Liberty.txt", encoding="utf-8-sig") as f:
@@ -87,6 +92,16 @@ with open("On_Liberty.txt", encoding="utf-8-sig") as f:
         newline_sep_sentances += s + "\n"
     test_tokenizer_special(tokenize.ToktokTokenizer,newline_sep_sentances)
 
+    # Tweet tokenizer
+    test_tokenizer(tokenize.TweetTokenizer)
 
+    # Treebank word tokenizer
+    test_tokenizer(tokenize.TreebankWordTokenizer)
+
+    # NLTK word tokenizer
+    test_tokenizer(tokenize.NLTKWordTokenizer)
+
+    # My tokenizer
+    test_tokenizer(MyTokenizer)
 
 print("Done")
