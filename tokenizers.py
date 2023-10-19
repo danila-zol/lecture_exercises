@@ -1,13 +1,15 @@
 import spacy
+from nltk import data
 from nltk import tokenize
 from nltk.corpus import words
+import numpy as np
 import pandas as pd
 import warnings
 warnings.filterwarnings("ignore")
 
 
 tokenizer_list = [tkn for tkn in dir(tokenize) if tkn[0].isupper()]
-# print(len(tokenizer_list), tokenizer_list, sep='\n')
+print(len(tokenizer_list), tokenizer_list, "", sep='\n')
 t_num = 0
 
 def test_tokenizer(tokenizer, *args):
@@ -23,7 +25,7 @@ def test_tokenizer_special(tokenizer, book_text, *args):
     t = tokenizer(*args)
     tokens = t.tokenize(book_text)
     print(f"{t_num} {tokenizer}")
-    print(f"Number of tokens: {len(tokens)}")
+    print(f"Number of tokens: {len(tokens)}\n")
     t_num += 1
 
 with open("On_Liberty.txt", encoding="utf-8-sig") as f:
@@ -70,7 +72,20 @@ with open("On_Liberty.txt", encoding="utf-8-sig") as f:
         [("putt", "off"), ("add", "up")], ' '
     )
 
-    # 
+    # Text-tiling tokenizer
+    test_tokenizer(tokenize.TextTilingTokenizer)
+
+
+    # Punkt sentance tokenizer
+    test_tokenizer(tokenize.PunktSentenceTokenizer)
+    # test_tokenizer(data.load, "tokenizers/punkt/english.pickle")
+
+    # Toktok tokenizer
+    sentances = np.array(tokenize.sent_tokenize(book_text))
+    newline_sep_sentances = ""
+    for s in sentances:
+        newline_sep_sentances += s + "\n"
+    test_tokenizer_special(tokenize.ToktokTokenizer,newline_sep_sentances)
 
 
 
