@@ -1,1 +1,9 @@
 iMDB_analysis_assignment/IMDB Dataset.csv
+chatbot/chatbot_weights*
+chatbot/glove
+chatbot/visual-novels
+*.tar*
+*.zip
+*.parquet
+*.csv
+*.jsonl
